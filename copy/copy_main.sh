@@ -68,6 +68,7 @@ rclone_copy() {
         --transfers=8 \
         --retries 1 \
         --dry-run \
+        -v \
         "${remote_folder}" \
         "${local_dest_folder}"
 }
