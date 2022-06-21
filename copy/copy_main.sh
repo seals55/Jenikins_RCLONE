@@ -14,7 +14,7 @@ rclone_move() {
     echo "DST: '${local_dest_folder}'"
     echo "BACKUPDIR: '${backupdir}'"
 
-    rclone --config="${rclone_config}" move \
+    rclone --config=\"${rclone_config}\" move \
         --progress \
         --exclude "**/@eaDir/**" \
         --exclude "**/@SynoResource/**" \
@@ -35,22 +35,19 @@ rclone_sync() {
     echo "SRC: '${remote_folder}'"
     echo "DST: '${local_dest_folder}'"
 
-    cmd="rclone --config='${rclone_config}' sync"
-    cmd="$cmd --progress"
-    cmd="$cmd --exclude '**/@eaDir/**'"
-    cmd="$cmd --exclude '**/@SynoResource/**'"
-    cmd="$cmd --exclude '*@eaDir*'"
-    cmd="$cmd --exclude '*@SynoResource*'"
-    cmd="$cmd --exclude 'nzbget.log'"
-    cmd="$cmd --exclude '.*'"
-    cmd="$cmd --transfers=8"
-    cmd="$cmd --retries 1"
-    cmd="$cmd --dry-run"
-    cmd="$cmd '${remote_folder}'"
-    cmd="$cmd '${local_dest_folder}'"
-
-    echo "Running: '${cmd}'"
-    $cmd
+    rclone --config="${rclone_config}" sync \
+        --progress \
+        --exclude '**/@eaDir/**' \
+        --exclude '**/@SynoResource/**' \
+        --exclude '*@eaDir*' \
+        --exclude '*@SynoResource*' \
+        --exclude 'nzbget.log' \
+        --exclude '.*' \
+        --transfers=8 \
+        --retries 1 \
+        --dry-run \
+        "${remote_folder}" \
+        "${local_dest_folder}"
 }
 
 rclone_copy() {
@@ -60,22 +57,19 @@ rclone_copy() {
     echo "SRC: '${remote_folder}'"
     echo "DST: '${local_dest_folder}'"
 
-    cmd="rclone --config='${rclone_config}' copy"
-    cmd="$cmd --progress"
-    cmd="$cmd --exclude '**/@eaDir/**'"
-    cmd="$cmd --exclude '**/@SynoResource/**'"
-    cmd="$cmd --exclude '*@eaDir*'"
-    cmd="$cmd --exclude '*@SynoResource*'"
-    cmd="$cmd --exclude 'nzbget.log'"
-    cmd="$cmd --exclude '.*'"
-    cmd="$cmd --transfers=8"
-    cmd="$cmd --retries 1"
-    cmd="$cmd --dry-run"
-    cmd="$cmd '${remote_folder}'"
-    cmd="$cmd '${local_dest_folder}'"
-
-    echo "Running: '${cmd}'"
-    $cmd
+    rclone --config="${rclone_config}" copy \
+        --progress \
+        --exclude '**/@eaDir/**' \
+        --exclude '**/@SynoResource/**' \
+        --exclude '*@eaDir*' \
+        --exclude '*@SynoResource*' \
+        --exclude 'nzbget.log' \
+        --exclude '.*' \
+        --transfers=8 \
+        --retries 1 \
+        --dry-run \
+        "${remote_folder}" \
+        "${local_dest_folder}"
 }
 
 rsync_sync() {
