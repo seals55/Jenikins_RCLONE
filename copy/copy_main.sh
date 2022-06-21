@@ -1,7 +1,8 @@
 # /usr/bin/env bash
 
 rclone="${WORKSPACE}/rclone"
-
+rclone_path=$(dirname "${rclone}")
+export PATH=${rclone_path}:$PATH
 
 rclone_move() {
     remote_folder="$1"
@@ -13,7 +14,7 @@ rclone_move() {
     echo "DST: '${local_dest_folder}'"
     echo "BACKUPDIR: '${backupdir}'"
 
-    "${rclone}" --config="${rclone_config}" move \
+    rclone --config="${rclone_config}" move \
         --progress \
         --exclude "**/@eaDir/**" \
         --exclude "**/@SynoResource/**" \
@@ -34,7 +35,7 @@ rclone_sync() {
     echo "SRC: '${remote_folder}'"
     echo "DST: '${local_dest_folder}'"
 
-    cmd="'${rclone}' --config='${rclone_config}' sync"
+    cmd="rclone --config='${rclone_config}' sync"
     cmd="$cmd --progress"
     cmd="$cmd --exclude '**/@eaDir/**'"
     cmd="$cmd --exclude '**/@SynoResource/**'"
@@ -59,7 +60,7 @@ rclone_copy() {
     echo "SRC: '${remote_folder}'"
     echo "DST: '${local_dest_folder}'"
 
-    cmd="'${rclone}' --config='${rclone_config}' copy"
+    cmd="rclone --config='${rclone_config}' copy"
     cmd="$cmd --progress"
     cmd="$cmd --exclude '**/@eaDir/**'"
     cmd="$cmd --exclude '**/@SynoResource/**'"
