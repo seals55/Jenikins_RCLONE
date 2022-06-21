@@ -17,3 +17,6 @@ echo "RCLONE config path:"
 
 echo "RCLONE config path:"
 "${rclone}" --config="${rclone_config}" config file
+
+echo "Verify configfile is used:"
+"${rclone}" --config="${rclone_config}" lsd GoogleSealsTV:/
