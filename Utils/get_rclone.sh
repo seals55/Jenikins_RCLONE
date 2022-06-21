@@ -6,6 +6,8 @@ unzip rclone-current-linux-amd64.zip
 
 # find downloaded rclone
 rclone=$(realpath "$(find . -type f -name rclone)")
+mv "${rclone}" "${WORKSPACE}/rclone"
+rclone="${WORKSPACE}/rclone"
 chmod 755 "${rclone}"
 
 echo "RCLONE path: \"${rclone}\""
