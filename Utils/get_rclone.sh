@@ -14,3 +14,6 @@ echo "RCLONE version:"
 
 echo "RCLONE config path:"
 "${rclone}" config file
+
+echo "RCLONE config path:"
+"${rclone}" --config="${rclone_config}" config file
