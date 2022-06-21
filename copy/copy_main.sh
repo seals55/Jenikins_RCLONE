@@ -2,8 +2,6 @@
 
 rclone="${WORKSPACE}/rclone"
 
-"${rclone}" --config="${rclone_config}" lsd GoogleSealsTV:/
-
 rclone_move() {
     remote_folder="$1"
     local_dest_folder="$2"
@@ -130,7 +128,7 @@ local_move() {
     popd
 }
 
-function clean_dirs() {
+clean_dirs() {
     if [ -d "$1" ]; then
         find "$1" -type l -print -not -path "*_UNPACK_*" | xargs -d '\n' rm -f
         find "$1" -type d -print -not -path "*_UNPACK_*" | sort -r | xargs -d '\n' rmdir -p --ignore-fail-on-non-empty 2>/dev/null
@@ -140,9 +138,3 @@ function clean_dirs() {
 
 # Extras
 rclone_copy "sealsnas5:/Extras" "GoogleSealsTV_Encrypted:/EXTRAS/Extras_sealsnas5"
-
-
-
-
-
-
