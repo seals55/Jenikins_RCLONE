@@ -4,7 +4,7 @@ curl -O https://downloads.rclone.org/rclone-current-linux-amd64.zip
 unzip rclone-current-linux-amd64.zip
 # cd rclone-*-linux-amd64
 
-find . -type f | grep rclone
+find . -type f -name rclone
 
 # sudo cp rclone /usr/bin/
 # sudo chown root:root /usr/bin/rclone
