@@ -6,7 +6,11 @@ unzip rclone-current-linux-amd64.zip
 
 # find downloaded rclone
 rclone=$(realpath "$(find . -type f -name rclone)")
-echo "Found RCLONE: \"${rclone}\""
 chmod 755 "${rclone}"
 
+echo "RCLONE path: \"${rclone}\""
+echo "RCLONE version:"
 "${rclone}" version
+
+echo "RCLONE config path:"
+"${rclone}" config file
