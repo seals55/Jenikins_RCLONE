@@ -83,7 +83,8 @@ rclone_copy() {
         --retries 3 \
         --bwlimit 8.68M \
         --dry-run \
-        --progress \
+        --stats=1m \
+        --stats-one-line-date \
         -v \
         "${remote_folder}" \
         "${local_dest_folder}"
