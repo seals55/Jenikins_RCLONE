@@ -91,6 +91,7 @@ cd "${rclone_path}/copy/remotes"
 
 for f in *; do
     echo "Calling File: ${f}"
+    echo "-----------------------------"
     . "${rclone_path}/copy/remotes/${f}"
 done
 
