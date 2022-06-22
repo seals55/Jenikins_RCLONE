@@ -57,15 +57,29 @@ rclone_copy() {
     echo "SRC: '${remote_folder}'"
     echo "DST: '${local_dest_folder}'"
 
-    rclone --config="${rclone_config}" copy \
-        --progress \
+    # rclone --config="${rclone_config}" copy \
+    #     --progress \
+    #     --exclude '**/@eaDir/**' \
+    #     --exclude '**/@SynoResource/**' \
+    #     --exclude '*@eaDir*' \
+    #     --exclude '*@SynoResource*' \
+    #     --exclude 'nzbget.log' \
+    #     --exclude '.*' \
+    #     --transfers=8 \
+    #     --retries 1 \
+    #     --dry-run \
+    #     -v \
+    #     "${remote_folder}" \
+    #     "${local_dest_folder}"
+    rclone --config "${rclone_config}" \
+        copy \
         --exclude '**/@eaDir/**' \
         --exclude '**/@SynoResource/**' \
         --exclude '*@eaDir*' \
         --exclude '*@SynoResource*' \
         --exclude 'nzbget.log' \
         --exclude '.*' \
-        --transfers=8 \
+        --transfers 1 \
         --retries 1 \
         --dry-run \
         -v \
