@@ -87,9 +87,6 @@ rclone_copy() {
         "${local_dest_folder}"
 }
 
-FILES=$(dirname "copy/remotes/*")
-echo "FILES: ${FILES}"
-for f in $FILES
-do
+for f in "copy/remotes/*"; do
     echo "Running File: ${f}"
 done
