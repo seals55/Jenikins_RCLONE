@@ -87,6 +87,8 @@ rclone_copy() {
         "${local_dest_folder}"
 }
 
-for f in "copy/remotes/*"; do
+pushd "${rclone_path}/copy/remotes"
+for f in *; do
     echo "Running File: ${f}"
 done
+popd
