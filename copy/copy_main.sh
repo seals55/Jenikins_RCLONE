@@ -74,6 +74,7 @@ rclone_copy() {
 }
 
 
-# Extras
-rclone_copy "sealsnas5:/Extras" "GoogleSealsTV_Encrypted:/EXTRAS/Extras_sealsnas5"
-rclone_copy "unraid:/mnt/user/Extras" "GoogleSealsTV_Encrypted:/EXTRAS/Extras_unraid"
+for f in copy_remote_*.sh
+do
+    echo "Running File: ${f}"
+done
