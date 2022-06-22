@@ -88,6 +88,7 @@ rclone_copy() {
 }
 
 FILES=$(dirname "copy/remotes/*")
+echo "FILES: ${FILES}"
 for f in $FILES
 do
     echo "Running File: ${f}"
