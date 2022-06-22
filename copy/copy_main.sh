@@ -57,20 +57,6 @@ rclone_copy() {
     echo "SRC: '${remote_folder}'"
     echo "DST: '${local_dest_folder}'"
 
-    # rclone --config="${rclone_config}" copy \
-    #     --progress \
-    #     --exclude '**/@eaDir/**' \
-    #     --exclude '**/@SynoResource/**' \
-    #     --exclude '*@eaDir*' \
-    #     --exclude '*@SynoResource*' \
-    #     --exclude 'nzbget.log' \
-    #     --exclude '.*' \
-    #     --transfers=8 \
-    #     --retries 1 \
-    #     --dry-run \
-    #     -v \
-    #     "${remote_folder}" \
-    #     "${local_dest_folder}"
     rclone --config "${rclone_config}" \
         copy \
         --exclude '**/@eaDir/**' \
@@ -82,17 +68,20 @@ rclone_copy() {
         --transfers 8 \
         --retries 3 \
         --bwlimit 8.68M \
-        --dry-run \
         --stats=1m \
         --stats-one-line-date \
         -v \
         "${remote_folder}" \
         "${local_dest_folder}"
+
+        # --dry-run \
+
 }
 
 cd "${rclone_path}/copy/remotes"
 
 for f in *; do
+    echo "-----------------------------"
     echo "Calling File: ${f}"
     echo "-----------------------------"
     . "${rclone_path}/copy/remotes/${f}"
