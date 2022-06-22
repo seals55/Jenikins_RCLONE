@@ -88,7 +88,10 @@ rclone_copy() {
 }
 
 cd "${rclone_path}/copy/remotes"
+
 for f in *; do
-    echo "Running File: ${f}"
+    echo "Calling File: ${f}"
+    source "${f}"
 done
+
 cd "${rclone_path}/"
