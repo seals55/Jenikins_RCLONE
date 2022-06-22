@@ -87,9 +87,8 @@ rclone_copy() {
         "${local_dest_folder}"
 }
 
-# pushd "${rclone_path}/copy/remotes"
-echo "PWD: $(pwd)"
+cd "${rclone_path}/copy/remotes"
 for f in *; do
     echo "Running File: ${f}"
 done
-# popd
+cd "${rclone_path}/"
