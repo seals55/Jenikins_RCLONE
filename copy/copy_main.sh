@@ -79,9 +79,11 @@ rclone_copy() {
         --exclude '*@SynoResource*' \
         --exclude 'nzbget.log' \
         --exclude '.*' \
-        --transfers 1 \
-        --retries 1 \
+        --transfers 8 \
+        --retries 3 \
+        --bwlimit 8.68M \
         --dry-run \
+        --progress \
         -v \
         "${remote_folder}" \
         "${local_dest_folder}"
