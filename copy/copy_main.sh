@@ -87,8 +87,8 @@ rclone_copy() {
         "${local_dest_folder}"
 }
 
-
-for f in copy_remote_*.sh
+FILES="copy/copy_remote_*.sh"
+for f in $FILES
 do
     echo "Running File: ${f}"
 done
