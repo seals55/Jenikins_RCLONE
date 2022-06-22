@@ -91,7 +91,7 @@ cd "${rclone_path}/copy/remotes"
 
 for f in *; do
     echo "Calling File: ${f}"
-    source "${rclone_path}/copy/remotes/${f}"
+    . "${rclone_path}/copy/remotes/${f}"
 done
 
 cd "${rclone_path}/"
