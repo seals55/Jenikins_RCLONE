@@ -57,8 +57,9 @@ rclone_copy() {
     backupdir="${backupdir}/dupes_$(date '+%Y-%m-%d-%H_%M_%S')"
 
 
-    echo "SRC: '${remote_folder}'"
-    echo "DST: '${local_dest_folder}'"
+    echo "SRC:   '${remote_folder}'"
+    echo "DST:   '${local_dest_folder}'"
+    echo "DUPES: '${backupdir}'"
 
     rclone --config "${rclone_config}" \
         copy \
