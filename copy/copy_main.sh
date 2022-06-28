@@ -53,6 +53,9 @@ export PATH=${rclone_path}:$PATH
 rclone_copy() {
     remote_folder="$1"
     local_dest_folder="$2"
+    backupdir="$3"
+    backupdir="${backupdir}/dupes_$(date '+%Y-%m-%d-%H_%M_%S')"
+
 
     echo "SRC: '${remote_folder}'"
     echo "DST: '${local_dest_folder}'"
@@ -70,17 +73,19 @@ rclone_copy() {
         --bwlimit 8.68M \
         --stats=1m \
         --stats-one-line-date \
+        --backup-dir "${backupdir}" \
+        --dry-run \
         -v \
         "${remote_folder}" \
         "${local_dest_folder}"
 
-        # --dry-run \
 
 }
 
 cd "${rclone_path}/copy/remotes"
 
-for f in *; do
+# for f in *; do
+for f in copy_remote_015.sh; do
     echo "-----------------------------"
     echo "Calling File: ${f}"
     echo "-----------------------------"
