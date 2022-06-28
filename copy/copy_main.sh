@@ -79,14 +79,11 @@ rclone_copy() {
         -v \
         "${remote_folder}" \
         "${local_dest_folder}"
-
-
 }
 
 cd "${rclone_path}/copy/remotes"
 
-# for f in *; do
-for f in copy_remote_015.sh; do
+for f in *; do
     echo "-----------------------------"
     echo "Calling File: ${f}"
     echo "-----------------------------"

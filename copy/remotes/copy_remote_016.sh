@@ -1,5 +1,8 @@
 # /usr/bin/env bash
 
 # Magazines
-# rclone_copy "unraid:/mnt/user/TV" "GoogleSealsTV_Encrypted:/TV/TV_unraid_tv"
+base_src_dir="tower:/mnt/user/Magazines"
+base_dest_dir="GoogleSealsTV_Encrypted:/Magazines"
+dupe_dir="GoogleSealsTV_Encrypted:/Magazines_dupes"
 
+rclone_copy "${base_src_dir}" "${base_dest_dir}" "${dupe_dir}"
