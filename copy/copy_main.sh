@@ -75,10 +75,12 @@ rclone_copy() {
         --stats=1m \
         --stats-one-line-date \
         --backup-dir "${backupdir}" \
-        --dry-run \
         -v \
         "${remote_folder}" \
         "${local_dest_folder}"
+
+        # --dry-run \
+
 }
 
 cd "${rclone_path}/copy/remotes"
